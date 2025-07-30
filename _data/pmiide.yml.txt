@@ -1,0 +1,219 @@
+# File ini berisi semua data untuk halaman PMIIde.
+# Jekyll akan secara otomatis membaca file ini dan membuatnya tersedia
+# di `site.data.pmiide`.
+
+- group: A
+  terms:
+    - title: "Advokasi Kebijakan"
+      description: "Gerakan intelektual untuk memengaruhi kebijakan pemerintah melalui riset, audiensi, dan kampanye publik guna melahirkan regulasi yang adil dan sesuai dengan nilai-nilai pergerakan."
+    - title: "Ahlussunnah wal Jamaah (Aswaja)"
+      description: "Landasan ideologis PMII yang mengajarkan Islam moderat, toleran, seimbang, dan adil. Aswaja bukan hanya akidah, tetapi juga metodologi berpikir (manhaj al-fikr) dalam setiap gerakan."
+    - title: "Agent of Change (Agen Perubahan)"
+      description: "Peran kader PMII sebagai individu yang proaktif menginisiasi dan mendorong perubahan positif di lingkungan sekitarnya, berbekal gagasan inovatif dan keberanian untuk bertindak."
+    - title: "Agent of Social Control (Agen Kontrol Sosial)"
+      description: "Fungsi PMII sebagai lembaga pengawas independen yang kritis terhadap kebijakan pemerintah dan dinamika sosial, memastikan semuanya berjalan sesuai koridor hukum dan keadilan."
+    - title: "Aksi Demonstrasi"
+      description: "Metode perjuangan kolektif untuk menyuarakan aspirasi atau protes terhadap ketidakadilan, yang dianggap sebagai pilihan terakhir setelah jalur dialog formal tidak membuahkan hasil."
+    - title: "Alumni PMII"
+      description: "Kader yang telah menyelesaikan masa studinya dan berkiprah di berbagai bidang profesional. Mereka menjadi jaringan strategis dan bukti keberhasilan proses kaderisasi organisasi."
+    - title: "Amar Ma'ruf Nahi Munkar"
+      description: "Prinsip dasar gerakan untuk menyeru pada kebaikan (keadilan, kesejahteraan) dan mencegah kemungkaran (kezaliman, korupsi, ketidakadilan), yang menjadi spirit perjuangan setiap kader."
+    - title: "Analisis Sosial (Ansos)"
+      description: "Kemampuan metodologis kader untuk membedah realitas sosial, mengidentifikasi akar masalah, dan memetakan relasi kuasa, agar gerakan yang dilakukan strategis dan berbasis data."
+    - title: "Anggaran Dasar (AD) PMII"
+      description: "Konstitusi tertinggi organisasi yang memuat aturan-aturan paling fundamental, seperti asas, tujuan, dan struktur umum. Perubahannya hanya bisa dilakukan melalui forum Kongres."
+    - title: "Anggaran Rumah Tangga (ART) PMII"
+      description: "Dokumen turunan dari AD yang berisi penjelasan teknis dan operasional organisasi, seperti mekanisme keanggotaan, tugas pengurus, dan aturan rinci permusyawaratan."
+    - title: "Arti Lambang PMII"
+      description: "Makna filosofis dari setiap elemen pada logo PMII, seperti perisai (ketahanan), bintang (cita-cita luhur), dan warna (ilmu pengetahuan), yang merepresentasikan identitas organisasi."
+    - title: "Aswaja sebagai Manhaj al-Fikr"
+      description: "Konsep bahwa Aswaja adalah metodologi berpikir yang dinamis dan adaptif, bukan dogma kaku, yang digunakan untuk merespons berbagai persoalan modern secara relevan."
+
+- group: B
+  terms:
+    - title: "Basis Massa"
+      description: "Kelompok masyarakat atau mahasiswa yang menjadi sasaran utama gerakan dan rekrutmen PMII. Membangun basis massa yang solid adalah kunci kekuatan organisasi."
+    - title: "Bedah Buku"
+      description: "Kegiatan intelektual untuk mengupas, menganalisis, dan mengkritisi isi sebuah buku secara mendalam, guna memperkaya wawasan dan merangsang tradisi berpikir kritis kader."
+    - title: "Bendera PMII"
+      description: "Panji organisasi berwarna dasar kuning dengan lambang PMII di tengahnya. Bendera ini selalu dikibarkan dalam setiap acara resmi sebagai simbol eksistensi dan semangat pergerakan."
+    - title: "Bintang Sembilan"
+      description: "Elemen dalam lambang PMII dan NU yang melambangkan Nabi Muhammad, empat Khulafaur Rasyidin, dan empat Imam Mazhab, sebagai simbol sanad keilmuan dan spiritual Aswaja."
+
+- group: C
+  terms:
+    - title: "Cipayung Plus"
+      description: "Aliansi informal organisasi kemahasiswaan tingkat nasional (PMII, HMI, GMNI, GMKI, PMKRI, dll) yang sering bertemu untuk membahas dan menyikapi isu-isu kebangsaan strategis."
+
+- group: D
+  terms:
+    - title: "Deklarasi Murnajati 1972"
+      description: "Momen bersejarah ketika PMII menyatakan independen (tidak terikat secara struktural) dari Nahdlatul Ulama (NU), untuk menegaskan posisinya sebagai organisasi kemahasiswaan yang mandiri."
+    - title: "Diskusi Publik"
+      description: "Kegiatan intelektual yang terbuka untuk umum, diselenggarakan PMII untuk membahas isu-isu penting serta menawarkan solusi dan pandangan alternatif kepada masyarakat luas."
+    - title: "Dzikir, Fikir, Amal Shaleh"
+      description: "Tri motto PMII yang menggambarkan keseimbangan antara dimensi spiritual (dzikir), intelektual (fikir), dan aksi sosial (amal shaleh) yang harus dimiliki setiap kader."
+
+- group: E
+  terms:
+    - title: "Ekstraparlementer"
+      description: "Perjuangan politik yang dilakukan di luar lembaga legislatif formal, seperti melalui aksi massa, kampanye publik, atau pembentukan opini, yang menjadi ciri khas gerakan mahasiswa."
+
+- group: F
+  terms:
+    - title: "Follow-up Kaderisasi"
+      description: "Proses pendampingan dan pembinaan lanjutan setelah seorang anggota mengikuti jenjang kaderisasi formal, untuk memastikan nilai-nilai dan pengetahuan yang didapat terinternalisasi dengan baik."
+
+- group: G
+  terms:
+    - title: "Gerakan Moral"
+      description: "Perjuangan yang menekankan pada nilai-nilai etika dan moralitas sebagai landasan utama dalam mengkritik atau mendukung sebuah kebijakan dan fenomena sosial."
+    - title: "Gerakan Intelektual"
+      description: "Aktivitas pergerakan yang berbasis pada kekuatan gagasan, riset, dan wacana. Wujudnya berupa diskusi, penerbitan jurnal, seminar, dan bedah buku secara rutin."
+
+- group: H
+  terms:
+    - title: "Hablum Minal 'Alam"
+      description: "Salah satu pilar NDP PMII yang berarti 'hubungan dengan alam'. Ini menegaskan kewajiban kader untuk menjaga kelestarian lingkungan dan menolak eksploitasi alam."
+    - title: "Hablum Minallah"
+      description: "Pilar pertama NDP PMII yang berarti 'hubungan dengan Allah'. Ini adalah landasan spiritualitas kader, menekankan pentingnya ketakwaan dan keimanan dalam setiap tindakan."
+    - title: "Hablum Minannas"
+      description: "Pilar kedua NDP PMII yang berarti 'hubungan dengan sesama manusia'. Ini menuntun kader untuk menjunjung tinggi nilai kemanusiaan, keadilan, dan persaudaraan tanpa memandang perbedaan."
+    - title: "Harlah PMII"
+      description: "Peringatan Hari Lahir PMII yang jatuh setiap tanggal 17 April. Momen ini biasanya dirayakan dengan berbagai kegiatan, dari refleksi, seminar, hingga tasyakuran."
+    - title: "Hymne PMII"
+      description: "Lagu resmi PMII yang dinyanyikan setelah Mars PMII dalam acara-acara formal. Liriknya berisi refleksi mendalam tentang komitmen dan pengabdian seorang kader."
+
+- group: I
+  terms:
+    - title: "IKA PMII (Ikatan Alumni)"
+      description: "Wadah formal yang menghimpun seluruh alumni PMII. IKA PMII berfungsi sebagai jaringan pendukung, tempat berbagi pengalaman, dan mitra strategis bagi kader aktif."
+    - title: "Independensi PMII"
+      description: "Sikap kemandirian organisasi, baik secara etis maupun struktural, dari lembaga atau kekuatan politik manapun, termasuk NU, sebagaimana ditegaskan dalam Deklarasi Murnajati."
+    - title: "Intelektual Organik"
+      description: "Konsep intelektual yang tidak hanya berpikir di menara gading, tetapi juga menyatu dan berjuang bersama masyarakat. Cita-cita PMII adalah melahirkan intelektual organik."
+    - title: "Intelektual Profetik"
+      description: "Gagasan tentang peran intelektual yang tidak hanya menganalisis, tetapi juga membawa misi kenabian, yaitu membebaskan manusia dari kezaliman dan menuju pencerahan."
+    - title: "Interdependensi"
+      description: "Sikap PMII dalam hubungannya dengan NU. Meskipun independen secara struktural, PMII mengakui adanya hubungan historis, aspiratif, dan tanggung jawab moral dengan NU."
+    - title: "Iron Stock (Stok Besi)"
+      description: "Peran mahasiswa sebagai cadangan generasi pemimpin masa depan. PMII berfungsi sebagai kawah candradimuka untuk menyiapkan kader-kadernya menjadi iron stock yang berkualitas."
+    - title: "Islam Nusantara"
+      description: "Konsep pemahaman Islam yang mempertimbangkan kearifan lokal dan budaya Indonesia. PMII menjadi salah satu garda terdepan dalam menyosialisasikan dan memperjuangkan gagasan ini."
+
+- group: J
+  terms:
+    - title: "Jas PMII"
+      description: "Pakaian resmi organisasi berwarna biru langit (biru dongker untuk KOPRI) dengan lambang PMII di dada. Jas ini dikenakan dalam acara-acara formal dan menjadi simbol identitas kader."
+
+- group: K
+  terms:
+    - title: "Kader Militan"
+      description: "Sebutan untuk kader yang memiliki loyalitas, disiplin, dan semangat juang yang tinggi terhadap organisasi, serta tidak mudah menyerah dalam menghadapi tantangan."
+    - title: "Kader Ulul Albab"
+      description: "Profil ideal kader PMII, yaitu insan yang memiliki keseimbangan antara kekuatan dzikir (spiritualitas), fikir (intelektualitas), dan amal shaleh (aksi sosial)."
+    - title: "Kaderisasi Formal"
+      description: "Jenjang pendidikan berjenjang dan terstruktur yang wajib diikuti oleh setiap anggota, meliputi MAPABA, PKD (Pelatihan Kader Dasar), dan PKL (Pelatihan Kader Lanjut)."
+    - title: "Ke-PMII-an"
+      description: "Materi dasar dalam kaderisasi yang membahas tentang sejarah, ideologi, struktur, dan seluk-beluk organisasi PMII, agar anggota baru mengenal rumah pergerakannya."
+    - title: "Khidmah"
+      description: "Konsep pengabdian tulus kepada organisasi, masyarakat, bangsa, dan agama. Ber-PMII dianggap sebagai salah satu bentuk khidmah untuk mewujudkan cita-cita luhur."
+    - title: "Komisariat (PK)"
+      description: "Struktur kepengurusan PMII di tingkat universitas atau fakultas. PK membawahi beberapa rayon yang ada di bawahnya."
+    - title: "Konferensi Cabang (Konfercab)"
+      description: "Forum permusyawaratan tertinggi di tingkat cabang (kabupaten/kota) yang diadakan untuk memilih ketua cabang baru dan menetapkan program kerja."
+    - title: "Kongres PMII"
+      description: "Forum permusyawaratan tertinggi di tingkat nasional yang diadakan setiap dua atau tiga tahun sekali untuk memilih Ketua Umum PB PMII dan mengubah AD/ART."
+    - title: "KOPRI (Korps PMII Putri)"
+      description: "Badan semi otonom yang menjadi wadah bagi kader perempuan PMII untuk berproses, berjuang, dan mengembangkan diri, khususnya dalam isu-isu gender dan perempuan."
+    - title: "Kritik Sosial"
+      description: "Analisis dan penyampaian pendapat yang tajam terhadap fenomena atau masalah sosial di masyarakat. Kritik sosial adalah bagian tak terpisahkan dari tradisi intelektual PMII."
+
+- group: L
+  terms:
+    - title: "Lambang PMII"
+      description: "Simbol visual organisasi yang terdiri dari perisai, sembilan bintang, dan tulisan PMII. Lambang ini merepresentasikan nilai, visi, dan identitas pergerakan."
+
+- group: M
+  terms:
+    - title: "Mabadi Khaira Ummah"
+      description: "Konsep 'prinsip-prinsip umat terbaik' dari NU yang juga diinternalisasi PMII, meliputi nilai-nilai seperti kejujuran (ash-shidqu), amanah, dan keadilan."
+    - title: "Mahbub Djunaidi"
+      description: "Ketua Umum pertama PB PMII (1960-1967), seorang sastrawan, jurnalis, dan politisi ulung yang dikenal sebagai 'Pendekar Pena'. Tulisannya menjadi inspirasi bagi banyak kader."
+    - title: "Majelis Pembina"
+      description: "Struktur di setiap tingkatan kepengurusan yang berfungsi sebagai dewan penasihat, terdiri dari para alumni atau tokoh senior yang dianggap mumpuni."
+    - title: "Mars PMII"
+      description: "Lagu wajib yang penuh semangat dan dinyanyikan di awal setiap acara resmi PMII. Liriknya berisi seruan perjuangan dan penegasan identitas kader."
+    - title: "MAPABA (Masa Penerimaan Anggota Baru)"
+      description: "Gerbang awal dan jenjang kaderisasi formal pertama di PMII. MAPABA adalah forum untuk merekrut, memperkenalkan organisasi, dan melantik anggota baru."
+
+- group: N
+  terms:
+    - title: "Nahdlatul Ulama (NU)"
+      description: "Organisasi Islam terbesar di Indonesia yang menjadi 'orang tua' ideologis dan kultural bagi PMII. PMII lahir dari rahim mahasiswa-mahasiswa NU."
+    - title: "Nilai Dasar Pergerakan (NDP)"
+      description: "Rumusan nilai-nilai fundamental yang menjadi landasan filosofis dan etis bagi seluruh kader PMII dalam berpikir, bersikap, dan bertindak. Terdiri dari pilar Tauhid, Hablum Minallah, Hablum Minannas, dan Hablum Minal 'Alam."
+
+- group: O
+  terms:
+    - title: "Organisasi Kaderisasi"
+      description: "Jati diri PMII sebagai organisasi yang fokus utamanya adalah mencetak dan membina sumber daya manusia (kader) yang berkualitas secara intelektual, spiritual, dan sosial."
+    - title: "Organisasi Perjuangan"
+      description: "Identitas PMII sebagai organisasi yang tidak hanya berorientasi ke dalam (kaderisasi), tetapi juga aktif berjuang untuk mewujudkan perubahan sosial-politik di luar."
+
+- group: P
+  terms:
+    - title: "Paradigma Kritis Transformatif"
+      description: "Cara pandang PMII yang tidak hanya kritis dalam menganalisis masalah, tetapi juga berorientasi pada aksi nyata untuk melakukan transformasi atau perubahan menuju kondisi yang lebih baik."
+    - title: "PKD (Pelatihan Kader Dasar)"
+      description: "Jenjang kaderisasi formal kedua setelah MAPABA. Tujuannya adalah membentuk kader militan yang memiliki kesadaran ideologis dan kemampuan analisis yang lebih tajam."
+    - title: "PKL (Pelatihan Kader Lanjut)"
+      description: "Jenjang kaderisasi formal ketiga setelah PKD, biasanya diselenggarakan di tingkat provinsi. Tujuannya adalah membentuk kader pemimpin yang mampu mengembangkan konsep gerakan."
+    - title: "PKN (Pelatihan Kader Nasional)"
+      description: "Jenjang kaderisasi formal tertinggi yang diselenggarakan oleh PB PMII, bertujuan untuk melahirkan kader-kader pemimpin berskala nasional dengan wawasan kebangsaan yang komprehensif."
+    - title: "Pengurus Besar (PB PMII)"
+      description: "Struktur kepengurusan PMII di tingkat nasional yang dipimpin oleh seorang Ketua Umum. PB PMII berkantor pusat di Jakarta dan mengkoordinasikan seluruh cabang."
+    - title: "Perisai"
+      description: "Bagian dari lambang PMII yang berbentuk tameng. Ini melambangkan ketahanan, kekuatan, dan kesiapan kader dalam menghadapi segala tantangan dan ancaman."
+    - title: "Pribadi Muslim Indonesia"
+      description: "Tujuan akhir dari kaderisasi PMII, yaitu membentuk individu yang memiliki karakter keislaman yang kuat sekaligus rasa nasionalisme Indonesia yang kokoh."
+
+- group: R
+  terms:
+    - title: "Radikalisme Agama"
+      description: "Paham keagamaan ekstrem yang menjadi lawan ideologis utama PMII. PMII secara aktif mempromosikan Islam moderat dan toleran untuk membendung penyebaran radikalisme."
+    - title: "Rayon"
+      description: "Struktur kepengurusan PMII paling dasar yang berada di tingkat jurusan atau program studi. Rayon adalah ujung tombak rekrutmen dan pembinaan anggota."
+    - title: "RTL (Rencana Tindak Lanjut)"
+      description: "Program aksi konkret yang disusun oleh peserta setelah mengikuti sebuah pelatihan atau kaderisasi, sebagai wujud implementasi dari ilmu yang telah didapat."
+
+- group: S
+  terms:
+    - title: "Sahabat/Sahabati"
+      description: "Sapaan akrab antar kader PMII. 'Sahabat' untuk kader laki-laki dan 'Sahabati' untuk kader perempuan. Sapaan ini mencerminkan semangat persaudaraan dan kesetaraan."
+    - title: "Salam Pergerakan!"
+      description: "Salam khas PMII yang diucapkan dengan lantang sambil mengepalkan tangan kiri. Salam ini berfungsi untuk membangkitkan semangat dan menunjukkan identitas organisasi."
+    - title: "SIG (Sekolah Islam Gender)"
+      description: "Kaderisasi khusus KOPRI untuk membekali kader perempuan dengan pemahaman mendalam tentang konsep gender dari perspektif Islam, sejarah gerakan perempuan, dan analisis feminis."
+    - title: "Solidaritas Kader"
+      description: "Rasa persaudaraan dan kepedulian yang kuat di antara sesama kader PMII, yang diwujudkan melalui sikap saling membantu dan mendukung dalam suka maupun duka."
+    - title: "Surabaya"
+      description: "Kota tempat PMII dideklarasikan pada tanggal 17 April 1960. Surabaya memiliki nilai historis yang sangat penting bagi seluruh kader PMII."
+
+- group: T
+  terms:
+    - title: "Tangan Terkepal dan Maju ke Muka"
+      description: "Slogan yang sering menyertai 'Salam Pergerakan!', menggambarkan semangat perlawanan terhadap penindasan dan tekad untuk terus bergerak maju membawa perubahan."
+    - title: "Tauhid"
+      description: "Pilar paling fundamental dalam NDP PMII. Ini adalah keyakinan akan keesaan Allah yang menjadi dasar pembebasan manusia dari segala bentuk penindasan dan penghambaan selain kepada-Nya."
+    - title: "Tawazun (Keseimbangan)"
+      description: "Salah satu prinsip Aswaja yang berarti sikap seimbang dalam berbagai aspek kehidupan, seperti antara urusan dunia dan akhirat, atau antara penggunaan akal dan dalil."
+    - title: "Tawasuth (Moderat)"
+      description: "Prinsip Aswaja yang berarti mengambil jalan tengah, tidak ekstrem kanan (radikal) maupun ekstrem kiri (liberal). Sikap ini menjadi ciri utama karakter kader PMII."
+    - title: "Toleransi (Tasamuh)"
+      description: "Prinsip Aswaja yang mengajarkan sikap menghargai dan menghormati perbedaan pendapat, keyakinan, dan budaya, sebagai landasan untuk membangun masyarakat yang harmonis."
+
+- group: W
+  terms:
+    - title: "Wallahul Muwaffiq ila Aqwamith Thariq"
+      description: "Salam penutup khas warga nahdliyin yang sering digunakan dalam surat-menyurat atau pidato di PMII, berarti 'Allah adalah Dzat yang memberi petunjuk ke jalan yang selurus-lurusnya'."
