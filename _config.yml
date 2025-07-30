@@ -1,0 +1,94 @@
+# ===================================================================
+#                      PENGATURAN SITUS UTAMA
+# ===================================================================
+# Variabel ini bisa diakses di seluruh situs menggunakan `site.variable`.
+# Contoh: {{ site.title }}
+
+title: "PMII"
+email: "pmiibalinusra@gmail.com"
+description: >- # `>-` berarti baris baru akan diabaikan.
+  Pusat informasi kaderisasi, berita, dan pemikiran kader PMII se-Nusantara.
+author: "PKC PMII Bali Nusra" # Penulis default untuk semua postingan
+
+# ===================================================================
+#                     PENGATURAN URL & BUILD
+# ===================================================================
+# Konfigurasi ini sudah disesuaikan untuk repositori Anda.
+# 'baseurl' dikosongkan jika situs berada di root domain.
+# Contoh: username.github.io
+
+url: "https://1qaz0okm2wsx9ijn3edc8uhb4rfv7ygv.github.io" # URL lengkap situs Anda
+baseurl: "" # Biarkan kosong untuk repositori user/organisasi
+
+# ===================================================================
+#                        PENGATURAN BUILD
+# ===================================================================
+# Konfigurasi bagaimana Jekyll akan membangun situs Anda.
+
+# Mengatur zona waktu untuk konsistensi tanggal & waktu postingan
+timezone: Asia/Makassar
+
+# Mengatur format permalink (URL) untuk postingan agar lebih rapi.
+# Contoh: /edukasi/2025/07/30/judul-postingan.html
+permalink: /:categories/:year/:month/:day/:title.html
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# Plugin yang didukung oleh GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Folder atau file yang tidak akan disertakan dalam hasil build
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+  - CONTRIBUTING.md
+
+# ===================================================================
+#        PENGATURAN SEO & MEDIA SOSIAL (Plugin jekyll-seo-tag)
+# ===================================================================
+# Isi informasi ini untuk optimasi SEO dan tampilan saat dibagikan.
+
+logo: /assets/images/logo-pmii.png # Path ke logo Anda
+social:
+  name: PMII
+  links:
+    - https://youtube.com/@pkcpmiibalinusra
+    - https://www.facebook.com/pkcpmiibalinusatenggara
+    - https://www.instagram.com/pkc.pmiibalinusra
+twitter:
+  username: 1qaz0okm2wsx9ijn3edc8uhb4rfv7ygv # Tanpa @
+
+# ===================================================================
+#                        PENGATURAN DEFAULT
+# ===================================================================
+# Mengatur nilai default untuk front matter agar tidak perlu ditulis berulang.
+
+defaults:
+  # 1. Pengaturan default untuk semua file dalam folder _posts
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post" # Semua postingan akan otomatis menggunakan layout "post.html"
+      author: "PKC PMII Bali Nusra" # Penulis default untuk setiap post
+
+  # 2. Pengaturan default untuk semua halaman .html
+  - scope:
+      path: "" # Berlaku untuk semua file .html di root
+      type: "pages"
+    values:
+      # Tidak perlu layout default di sini karena setiap halaman (archive/list)
+      # sudah mendefinisikan layoutnya sendiri.
