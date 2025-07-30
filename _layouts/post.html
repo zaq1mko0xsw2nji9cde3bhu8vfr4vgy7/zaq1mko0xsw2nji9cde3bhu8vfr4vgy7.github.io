@@ -1,0 +1,137 @@
+---
+# Front matter ini bisa dikosongkan.
+# File ini berfungsi sebagai layout untuk file lain.
+---
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Metadata -->
+    <title>{{ page.title | default: site.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | normalize_whitespace | truncate: 160 | default: site.description }}">
+    {% if page.author %}<meta name="author" content="{{ page.author }}">{% endif %}
+
+    <!-- Dependensi Eksternal -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton-shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, #e2e8f0 4%, #cbd5e1 25%, #e2e8f0 36%);
+            background-size: 1000px 100%;
+        }
+        /* Styling untuk konten dari Markdown */
+        .post-content h2, .post-content h3 { font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #1f2937; line-height: 1.4; }
+        .post-content h2 { font-size: 1.5rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+        .post-content h3 { font-size: 1.25rem; }
+        .post-content p { margin-bottom: 1.25rem; color: #374151; line-height: 1.7; text-align: justify; }
+        .post-content ul, .post-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; color: #374151; }
+        .post-content ul { list-style-type: disc; }
+        .post-content ol { list-style-type: decimal; }
+        .post-content a { color: #2563eb; text-decoration: none; font-weight: 500; }
+        .post-content a:hover { text-decoration: underline; }
+        .post-content blockquote { border-left-width: 4px; border-color: #3b82f6; background-color: #eff6ff; padding: 1rem; margin: 1.5rem 0; color: #1e40af; font-style: normal; }
+        .post-content blockquote p { margin-bottom: 0; }
+        .post-content img { display: block; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); margin: 2rem auto; max-width: 100%; height: auto; }
+        .post-content code { background-color: #e5e7eb; color: #1f2937; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.9em; }
+        .post-content pre { background-color: #1f2937; color: #e5e7eb; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <!-- Skeleton Loader -->
+    <div id="skeleton-loader" class="animate-pulse" role="status" aria-label="Memuat konten...">
+        <div class="h-16 bg-gray-300"></div>
+        <div class="max-w-4xl mx-auto p-5">
+            <div class="h-4 bg-gray-300 rounded w-1/3 mb-8"></div>
+            <div class="h-10 bg-gray-300 rounded w-full mb-4"></div>
+            <div class="h-10 bg-gray-300 rounded w-5/6 mb-8"></div>
+            <div class="aspect-video w-full rounded-lg bg-gray-300 mb-8"></div>
+            <div class="space-y-4">
+                <div class="h-4 bg-gray-300 rounded"></div>
+                <div class="h-4 bg-gray-300 rounded"></div>
+                <div class="h-4 bg-gray-300 rounded w-11/12"></div>
+                <div class="h-4 bg-gray-300 rounded w-3/4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Konten Sebenarnya (Awalnya Disembunyikan) -->
+    <div id="real-content" class="hidden">
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center sticky top-0 z-50 h-16 shadow-lg">
+            <button onclick="history.back()" aria-label="Kembali" class="absolute left-4 p-2 rounded-full hover:bg-white/20 transition-colors">
+                <i data-lucide="arrow-left" class="w-6 h-6"></i>
+            </button>
+            <h1 class="text-lg font-semibold truncate px-14">{{ page.categories | first | capitalize }}</h1>
+        </header>
+
+        <main class="container mx-auto max-w-4xl p-5 md:p-8 bg-white md:my-8 md:rounded-xl shadow-lg">
+            <article>
+                <div class="flex flex-wrap justify-between items-center text-sm text-gray-500 mb-4 gap-x-4 gap-y-2">
+                    {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>{% endif %}
+                    <div class="flex items-center gap-4">
+                        {% if page.sub_category %}<span class="font-semibold text-blue-700 bg-blue-100 py-1 px-3 rounded-full">{{ page.sub_category }}</span>{% endif %}
+                        {% if page.author %}<span class="flex items-center gap-1.5"><i data-lucide="user-circle" class="w-4 h-4"></i>{{ page.author }}</span>{% endif %}
+                    </div>
+                </div>
+
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">{{ page.title }}</h1>
+                
+                {% if page.image %}
+                <figure class="my-8">
+                    <img src="{{ page.image }}" alt="Gambar untuk {{ page.title }}" class="w-full h-auto rounded-xl shadow-lg">
+                    {% if page.image_caption %}<figcaption class="text-center text-sm text-gray-500 mt-3 italic">{{ page.image_caption }}</figcaption>{% endif %}
+                </figure>
+                {% endif %}
+                
+                {% if page.youtube_id %}
+                    {% assign video_id = page.youtube_id | split: '/' | last | split: '?v=' | last | split: '&' | first %}
+                    <div class="my-8 aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/{{ video_id }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                {% endif %}
+
+                <section class="post-content">
+                    {{ content }}
+                </section>
+
+                {% if page.pdf_url %}
+                    <div class="my-8 p-6 bg-blue-50 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="file-text" class="w-10 h-10 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-bold text-blue-800">Dokumen Tersedia</h4>
+                                <p class="text-sm text-blue-700">Klik untuk mengunduh dokumen dalam format PDF.</p>
+                            </div>
+                        </div>
+                        <a href="{{ page.pdf_url }}" download rel="noopener noreferrer" class="bg-blue-600 text-white font-bold py-2 px-5 rounded-lg shadow-md transition-transform hover:scale-105 hover:bg-blue-700 whitespace-nowrap flex items-center gap-2">
+                           <i data-lucide="download" class="w-4 h-4"></i>
+                           <span>Unduh PDF</span>
+                        </a>
+                    </div>
+                {% endif %}
+            </article>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            lucide.createIcons();
+            const skeleton = document.getElementById('skeleton-loader');
+            const realContent = document.getElementById('real-content');
+            skeleton.style.display = 'none';
+            realContent.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
