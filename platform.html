@@ -1,0 +1,193 @@
+---
+layout: null
+title: "Platform"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="Pusat platform digital dan inisiatif strategis dari {{ site.title }} untuk kader dan masyarakat.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; padding-bottom: 90px; }
+        .faq-item div { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .faq-item.active div { max-height: 200px; }
+        .faq-item.active svg { transform: rotate(180deg); }
+        #copy-toast { transition: opacity 0.3s ease, transform 0.3s ease; }
+        /* Definisikan warna kustom untuk digunakan kembali */
+        .bg-primary { background-color: #0973d6; }
+        .bg-secondary { background-color: #2918a9; }
+        .bg-accent { background-color: #ffcb05; }
+        .text-primary { color: #0973d6; }
+        .text-secondary { color: #2918a9; }
+        .text-accent { color: #ffcb05; }
+        .bg-primary-light { background-color: #0973d61a; }
+        .bg-secondary-light { background-color: #2918a91a; }
+        .bg-accent-light { background-color: #ffcb051a; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div id="real-content">
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center sticky top-0 z-20 h-16 shadow-lg">
+            <h1 class="text-lg font-bold">{{ page.title }}</h1>
+        </header>
+
+        <main class="container mx-auto p-4 md:p-6">
+            <section class="flex flex-col gap-5">
+
+                <!-- Kartu 1: Pertanyaan Umum -->
+                <div class="bg-white rounded-xl shadow-lg p-5">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="p-3 rounded-full bg-primary-light text-primary">
+                            <i data-lucide="help-circle" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Pertanyaan Umum</h2>
+                    </div>
+                    <p class="text-gray-600 mb-4">Temukan jawaban untuk pertanyaan yang sering diajukan mengenai aplikasi dan layanan kami.</p>
+                    <button id="open-faq-btn" class="inline-block bg-primary text-white font-bold py-2 px-5 rounded-lg transition active:scale-95">Lihat FAQ</button>
+                </div>
+
+                <!-- Kartu 2: Bagikan Aplikasi -->
+                <div class="bg-white rounded-xl shadow-lg p-5">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="p-3 rounded-full bg-secondary-light text-secondary">
+                            <i data-lucide="share-2" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Bagikan Aplikasi</h2>
+                    </div>
+                    <p class="text-gray-600 mb-4">Suka dengan aplikasi ini? Bantu perjuangan kami dengan membagikannya kepada sahabat-sahabat yang lain.</p>
+                    <button id="copy-link-btn" class="inline-block bg-secondary text-white font-bold py-2 px-5 rounded-lg transition active:scale-95">Salin Tautan</button>
+                </div>
+
+                <!-- Kartu 3: Kunjungi Situs -->
+                <div class="bg-white rounded-xl shadow-lg p-5">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="p-3 rounded-full bg-accent-light text-accent">
+                            <i data-lucide="external-link" class="w-7 h-7"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-800">Kunjungi Situs</h2>
+                    </div>
+                    <p class="text-gray-600 mb-4">Jelajahi lebih jauh tentang kami melalui situs resmi PMII Bali Nusra.</p>
+                    <a href="https://pmiibalinusra.or.id" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-black font-bold py-2 px-5 rounded-lg transition active:scale-95">Buka Situs</a>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <footer class="fixed bottom-0 left-0 w-full h-[75px] bg-gradient-to-br from-[#0973d6] to-[#2918a9] flex justify-around items-center rounded-t-2xl shadow-2xl z-20">
+        <a href="{{ '/beranda.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="home" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Beranda</span></a>
+        <a href="{{ '/berita.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="newspaper" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Berita</span></a>
+        <a href="{{ '/pmiide.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="lightbulb" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">PMIIde</span></a>
+        <a href="{{ '/platform.html' | relative_url }}" class="flex flex-col items-center text-yellow-400 scale-110"><i data-lucide="send" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Platform</span></a>
+    </footer>
+
+    <!-- MODAL UNTUK FAQ -->
+    <div id="faq-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-30 hidden opacity-0">
+        <div class="modal-container bg-white rounded-xl shadow-2xl p-6 max-w-md w-11/12 transform scale-95">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Pertanyaan Umum</h3>
+                <button id="close-faq-btn" class="text-gray-500 hover:text-gray-800"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="space-y-3">
+                <div class="faq-item border-b border-gray-200 pb-2">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-gray-700">
+                        <span>Apa itu Aplikasi Permaisindo?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pt-2 text-gray-600"><p>Ini adalah platform terintegrasi untuk memudahkan kader PMII dalam mengakses informasi, materi kaderisasi, dan berinteraksi dalam satu genggaman.</p></div>
+                </div>
+                <div class="faq-item border-b border-gray-200 pb-2">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-gray-700">
+                        <span>Bagaimana cara mendaftar?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pt-2 text-gray-600"><p>Pendaftaran dilakukan melalui pengurus rayon atau komisariat masing-masing. Hubungi mereka untuk mendapatkan akses ke aplikasi.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-gray-700">
+                        <span>Apakah aplikasi ini gratis?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pt-2 text-gray-600"><p>Betul, aplikasi ini 100% gratis untuk seluruh kader PMII yang terdaftar secara resmi.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFIKASI TOAST UNTUK COPY LINK -->
+    <div id="copy-toast" class="fixed bottom-24 right-1/2 translate-x-1/2 bg-gray-900 text-white py-2 px-5 rounded-full z-40 hidden opacity-0 transform translate-y-4">
+        Tautan berhasil disalin!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const faqModal = document.getElementById('faq-modal');
+            const openFaqBtn = document.getElementById('open-faq-btn');
+            const closeFaqBtn = document.getElementById('close-faq-btn');
+            const faqItems = document.querySelectorAll('.faq-item button');
+            const copyLinkBtn = document.getElementById('copy-link-btn');
+            const copyToast = document.getElementById('copy-toast');
+
+            function showFaqModal() {
+                faqModal.classList.remove('hidden');
+                setTimeout(() => {
+                    faqModal.classList.remove('opacity-0');
+                    faqModal.querySelector('.modal-container').classList.remove('scale-95');
+                }, 10);
+            }
+
+            function hideFaqModal() {
+                faqModal.classList.add('opacity-0');
+                faqModal.querySelector('.modal-container').classList.add('scale-95');
+                setTimeout(() => faqModal.classList.add('hidden'), 300);
+            }
+
+            openFaqBtn.addEventListener('click', showFaqModal);
+            closeFaqBtn.addEventListener('click', hideFaqModal);
+            faqModal.addEventListener('click', (e) => { if (e.target === faqModal) hideFaqModal(); });
+
+            faqItems.forEach(button => {
+                button.addEventListener('click', () => button.parentElement.classList.toggle('active'));
+            });
+
+            copyLinkBtn.addEventListener('click', () => {
+                const linkToCopy = 'https://play.google.com';
+                const tempInput = document.createElement('input');
+                tempInput.value = linkToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyToast('Tautan berhasil disalin!');
+                } catch (err) {
+                    showCopyToast('Gagal menyalin tautan.');
+                }
+                document.body.removeChild(tempInput);
+            });
+
+            function showCopyToast(message) {
+                copyToast.textContent = message;
+                copyToast.classList.remove('hidden');
+                setTimeout(() => {
+                    copyToast.classList.remove('opacity-0', 'translate-y-4');
+                }, 10);
+                setTimeout(() => {
+                    copyToast.classList.add('opacity-0', 'translate-y-4');
+                    setTimeout(() => copyToast.classList.add('hidden'), 300);
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
