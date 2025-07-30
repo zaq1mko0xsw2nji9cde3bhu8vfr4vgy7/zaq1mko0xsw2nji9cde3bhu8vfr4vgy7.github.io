@@ -1,26 +1,13 @@
 ---
-# ----------------------------------------------------
-# METADATA POSTINGAN (FRONT MATTER)
-# ----------------------------------------------------
-# Ganti nilai di bawah ini sesuai dengan konten Anda.
-# Jika sebuah nilai tidak dibutuhkan (misal: youtube_id),
-# Anda bisa menghapus baris tersebut.
-# ----------------------------------------------------
-
-# --- WAJIB DIISI ---
-title: "Judul untuk Postingan Baru Anda"
-categories: [edukasi]
-
-# --- OPSIONAL ---
-author: "Nama Penulis"
-date: 2025-07-27 13:56:00 +0800
-sub_category: "Sub Kategori"
-tags: [Tag1, Tag2, Tag3]
-image: "/assets/images/nama-gambar.jpg"
-image_caption: "Deskripsi singkat untuk gambar di atas."
-youtube_id: "KodeUnikVideoYouTube"
-audio_url: "/assets/audio/nama-file-audio.mp3"
-pdf_url: "/assets/dokumen/nama-file-dokumen.pdf"
+title: "Judul"
+categories: [menu]
+author: "Kreator"
+sub_category: "bidang"
+tags: [kunci]
+image: "/assets/images/gambar.png"
+image_caption: "keterangan"
+youtube_id: "youtube.id"
+pdf_url: "drive.pdf"
 ---
 
 ## Sub Judul H2
