@@ -1,0 +1,67 @@
+---
+layout: null
+title: "Berita"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="Kumpulan berita dan informasi terbaru dari {{ site.title }}.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; padding-bottom: 90px; }
+        .news-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .news-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div>
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center sticky top-0 z-20 h-16 shadow-lg">
+            <h1 class="text-lg font-bold">{{ page.title }}</h1>
+        </header>
+
+        <main class="container mx-auto p-4 md:p-6">
+            <section class="flex flex-col gap-4">
+                {% for post in site.categories.berita %}
+                    <a href="{{ post.url | relative_url }}" class="news-card bg-white rounded-xl shadow-md overflow-hidden flex items-center gap-4">
+                        <div class="flex-shrink-0 w-24 h-24 md:w-28 md:h-28">
+                            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/112x112/e2e8f0/94a3b8?text=Berita';">
+                        </div>
+                        <div class="py-3 pr-4 flex flex-col justify-center">
+                            <time class="text-xs font-semibold text-blue-600 mb-1" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" | upcase }}</time>
+                            <h2 class="text-base font-bold text-gray-800 leading-tight">{{ post.title }}</h2>
+                        </div>
+                    </a>
+                {% else %}
+                    <div class="text-center text-gray-500 mt-8 p-4">
+                        <i data-lucide="file-search-2" class="w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold">Belum Ada Berita</h3>
+                        <p>Saat ini belum ada berita yang dipublikasikan.</p>
+                    </div>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+
+    <footer class="fixed bottom-0 left-0 w-full h-[75px] bg-gradient-to-br from-[#0973d6] to-[#2918a9] flex justify-around items-center rounded-t-2xl shadow-2xl z-50">
+        <a href="{{ '/beranda.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="home" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Beranda</span></a>
+        <a href="{{ '/berita.html' | relative_url }}" class="flex flex-col items-center text-yellow-400 scale-110"><i data-lucide="newspaper" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Berita</span></a>
+        <a href="{{ '/pmiide.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="lightbulb" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">PMIIde</span></a>
+        <a href="{{ '/platform.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="send" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Platform</span></a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
