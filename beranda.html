@@ -1,0 +1,156 @@
+---
+layout: null
+title: "Beranda"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="Halaman beranda {{ site.title }}. Temukan berita, esai, kolom, dan artikel terbaru dari kader PMII.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; padding-bottom: 90px; }
+        .swiper-slide { width: 70%; transition: transform 0.4s ease, opacity 0.4s ease; opacity: 0.5; transform: scale(0.85); }
+        .swiper-slide-active { opacity: 1; transform: scale(1); z-index: 1; }
+        .section-title { @apply flex items-center text-lg md:text-xl font-bold; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div>
+        <main>
+            <section class="w-full aspect-[3/2]">
+                <img src="{{ '/assets/images/hero.png' | relative_url }}" alt="Selamat Datang di PMII" class="w-full h-full object-cover">
+            </section>
+
+            <div class="container mx-auto px-4 md:px-6">
+                
+                <section class="mt-6" aria-labelledby="menu-cepat-heading">
+                    <h2 id="menu-cepat-heading" class="sr-only">Menu Cepat</h2>
+                    <div class="grid grid-cols-4 gap-3 md:gap-5">
+                        <a href="{{ '/aibat.html' | relative_url }}" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1">
+                            <i data-lucide="bot" class="w-8 h-8 mb-1"></i>
+                            <span class="text-xs font-semibold leading-tight">AIbat</span>
+                        </a>
+                        <a href="{{ '/edukasi.html' | relative_url }}" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1">
+                            <i data-lucide="graduation-cap" class="w-8 h-8 mb-1"></i>
+                            <span class="text-xs font-semibold leading-tight">Edukasi</span>
+                        </a>
+                        <a href="{{ '/kompetisi.html' | relative_url }}" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1">
+                            <i data-lucide="trophy" class="w-8 h-8 mb-1"></i>
+                            <span class="text-xs font-semibold leading-tight">Kompetisi</span>
+                        </a>
+                        <a href="{{ '/menu.html' | relative_url }}" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1">
+                            <i data-lucide="layout-grid" class="w-8 h-8 mb-1"></i>
+                            <span class="text-xs font-semibold leading-tight">Lainnya</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <section class="mt-8 container mx-auto px-4 md:px-6" aria-labelledby="esai-heading">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="esai-heading" class="section-title font-bold">
+                        <span style="color: #ffcb05;" class="mr-2">|</span>
+                        <span style="color: #2918a9;">Esai</span>
+                    </h2>
+                    <a href="{{ '/esai.html' | relative_url }}" class="text-sm font-semibold text-blue-600 hover:underline">Lihat Semua</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    {% for post in site.categories.esai limit:5 %}
+                        <a href="{{ post.url | relative_url }}" class="flex items-start gap-4 pb-4 border-b border-gray-200 last:border-b-0">
+                            <div class="flex-shrink-0 w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-lg font-bold text-indigo-800">{{ forloop.index }}</div>
+                            <div class="flex-grow pt-1"><p class="font-bold text-gray-800 leading-snug">{{ post.title }}</p></div>
+                        </a>
+                    {% else %}
+                        <p class="text-gray-500 p-4 text-center">Belum ada esai yang dipublikasikan.</p>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="mt-8" aria-labelledby="kolom-heading">
+                <div class="container mx-auto px-4 md:px-6 flex justify-between items-center mb-4">
+                    <h2 id="kolom-heading" class="section-title font-bold">
+                        <span style="color: #ffcb05;" class="mr-2">|</span>
+                        <span style="color: #2918a9;">Kolom</span>
+                    </h2>
+                    <a href="{{ '/kolom.html' | relative_url }}" class="text-sm font-semibold text-blue-600 hover:underline">Lihat Semua</a>
+                </div>
+                <div class="swiper w-full">
+                    <div class="swiper-wrapper py-4">
+                        {% for post in site.categories.kolom limit:5 %}
+                        <div class="swiper-slide shadow-xl rounded-xl">
+                            <a href="{{ post.url | relative_url }}" class="block">
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="w-full block rounded-xl aspect-[4/5] object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x500/e2e8f0/64748b?text=Kolom';">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-8 container mx-auto px-4 md:px-6" aria-labelledby="artikel-heading">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="artikel-heading" class="section-title font-bold">
+                        <span style="color: #ffcb05;" class="mr-2">|</span>
+                        <span style="color: #2918a9;">Artikel</span>
+                    </h2>
+                    <a href="{{ '/artikel.html' | relative_url }}" class="text-sm font-semibold text-blue-600 hover:underline">Lihat Semua</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    {% for post in site.categories.artikel limit:5 %}
+                        <a href="{{ post.url | relative_url }}" class="flex items-start gap-4 pb-4 border-b border-gray-200 last:border-b-0">
+                             <div class="flex-grow pt-1">
+                                {% if post.sub_category %}
+                                    <p class="text-xs font-bold text-blue-600 uppercase tracking-wider">{{ post.sub_category }}</p>
+                                {% endif %}
+                                <p class="font-semibold text-gray-800 leading-snug mt-1">{{ post.title }}</p>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 flex-shrink-0 self-center"></i>
+                        </a>
+                    {% else %}
+                         <p class="text-gray-500 p-4 text-center">Belum ada artikel yang dipublikasikan.</p>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="fixed bottom-0 left-0 w-full h-[75px] bg-gradient-to-br from-[#0973d6] to-[#2918a9] flex justify-around items-center rounded-t-2xl shadow-2xl z-50">
+        <a href="{{ '/beranda.html' | relative_url }}" class="flex flex-col items-center text-yellow-400 scale-110"><i data-lucide="home" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Beranda</span></a>
+        <a href="{{ '/berita.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="newspaper" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Berita</span></a>
+        <a href="{{ '/pmiide.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="lightbulb" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">PMIIde</span></a>
+        <a href="{{ '/platform.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="send" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Platform</span></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            const swiper = new Swiper('.swiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                    slideShadows: false,
+                },
+            });
+        });
+    </script>
+</body>
+</html>
