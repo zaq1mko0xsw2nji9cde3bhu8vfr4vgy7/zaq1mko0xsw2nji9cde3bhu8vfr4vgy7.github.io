@@ -1,0 +1,123 @@
+---
+layout: null
+title: "PMIIde"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Kamus Istilah Pergerakan</title>
+    <meta name="description" content="Kumpulan istilah-istilah penting dalam PMII yang perlu diketahui setiap kader.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; padding-bottom: 90px; }
+        .sticky-header { position: sticky; top: 0; z-index: 20; }
+        .sticky-search { position: sticky; top: 64px; /* Tinggi header */ z-index: 10; }
+        .term-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .term-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div id="real-content">
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center shadow-lg sticky-header h-16">
+            <h1 class="text-lg font-bold">{{ page.title }}</h1>
+        </header>
+
+        <main class="container mx-auto">
+            <div class="sticky-search bg-gray-100 p-4 pt-5">
+                <div class="relative">
+                    <input type="search" id="search-box" placeholder="Cari istilah (contoh: NDP, Aswaja)" class="w-full p-4 pl-12 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition shadow-sm">
+                    <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="search-results-container" class="p-4 md:p-6">
+                <!-- Pesan jika pencarian tidak ditemukan -->
+                <div id="search-info" class="text-center text-gray-500 mt-8 hidden p-4">
+                    <i data-lucide="search-x" class="w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold">Tidak Ditemukan</h3>
+                    <p>Istilah yang Anda cari tidak ada dalam kamus.</p>
+                </div>
+
+                <!-- Daftar Istilah Dinamis -->
+                {% for group in site.data.pmiide %}
+                    <div id="group-{{ group.group }}" class="term-group mb-8">
+                        <h2 class="text-3xl font-bold text-blue-700 border-b-2 border-blue-200 pb-2 mb-4 flex items-center">
+                            {{ group.group }}
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {% for term in group.terms %}
+                                <div class="term-card bg-white p-5 rounded-xl shadow-md">
+                                    <h3 class="font-bold text-lg text-gray-900 term-title">{{ term.title }}</h3>
+                                    <p class="text-gray-700 mt-1 term-description">{{ term.description }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <footer class="fixed bottom-0 left-0 w-full h-[75px] bg-gradient-to-br from-[#0973d6] to-[#2918a9] flex justify-around items-center rounded-t-2xl shadow-2xl z-50">
+        <a href="{{ '/beranda.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="home" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Beranda</span></a>
+        <a href="{{ '/berita.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="newspaper" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Berita</span></a>
+        <a href="{{ '/pmiide.html' | relative_url }}" class="flex flex-col items-center text-yellow-400 scale-110"><i data-lucide="lightbulb" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">PMIIde</span></a>
+        <a href="{{ '/platform.html' | relative_url }}" class="flex flex-col items-center text-white/70 hover:text-white transition"><i data-lucide="send" class="w-6 h-6 mb-1"></i><span class="text-xs font-bold">Platform</span></a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            const searchBox = document.getElementById('search-box');
+            const searchInfo = document.getElementById('search-info');
+            const termGroups = document.querySelectorAll('.term-group');
+
+            searchBox.addEventListener('input', () => {
+                const query = searchBox.value.toLowerCase().trim();
+                let totalTermsFound = 0;
+
+                termGroups.forEach(group => {
+                    let termsInGroupFound = 0;
+                    const cards = group.querySelectorAll('.term-card');
+                    
+                    cards.forEach(card => {
+                        const title = card.querySelector('.term-title').textContent.toLowerCase();
+                        const description = card.querySelector('.term-description').textContent.toLowerCase();
+                        
+                        if (title.includes(query) || description.includes(query)) {
+                            card.style.display = 'block';
+                            termsInGroupFound++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    if (termsInGroupFound > 0) {
+                        group.style.display = 'block';
+                        totalTermsFound += termsInGroupFound;
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+
+                if (query && totalTermsFound === 0) {
+                    searchInfo.classList.remove('hidden');
+                } else {
+                    searchInfo.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
