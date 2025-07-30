@@ -1,0 +1,118 @@
+---
+layout: null
+title: "Menu"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center sticky top-0 z-10 h-16 shadow-lg flex-shrink-0">
+            <button class="absolute left-4 p-2 rounded-full hover:bg-white/20" onclick="history.back()" aria-label="Kembali">
+                <i data-lucide="arrow-left" class="w-6 h-6"></i>
+            </button>
+            <h1 class="text-lg font-bold">Menu</h1>
+        </header>
+
+    <main>
+        <div class="container mx-auto p-4 md:p-6">
+            <section aria-labelledby="menu-utama-heading">
+                <h2 id="menu-utama-heading" class="sr-only">Menu</h2>
+                <div class="grid grid-cols-4 gap-3 md:gap-5">
+                    
+                    <!-- Baris 1 -->
+                    <a href="/aibat" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="bot" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">AIbat</span>
+                    </a>
+                    <a href="/edukasi" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Edukasi</span>
+                    </a>
+                    <a href="/kompetisi" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="trophy" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Kompetisi</span>
+                    </a>
+                    <a href="/amaliyah" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="shield-check" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Amaliyah</span>
+                    </a>
+
+                    <!-- Baris 2 -->
+                    <a href="/pustaka" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="book-open" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Pustaka</span>
+                    </a>
+                    <a href="/kaderisasi" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="users" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Kaderisasi</span>
+                    </a>
+                    <a href="/spesialis" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="gem" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Spesialis</span>
+                    </a>
+                    <a href="/mentoring" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="user-check" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Mentoring</span>
+                    </a>
+
+                    <!-- Baris 3 -->
+                    <a href="/diskursus" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="message-square" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Diskursus</span>
+                    </a>
+                    <a href="/koleksi" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="archive" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Koleksi</span>
+                    </a>
+                    <a href="/jurnal" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="file-text" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Jurnal</span>
+                    </a>
+                    <a href="/buku" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="book" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Buku</span>
+                    </a>
+
+                    <!-- Baris 4 -->
+                    <a href="/koran" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="newspaper" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Koran</span>
+                    </a>
+                    <a href="/artikel" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="file-pen-line" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Artikel</span>
+                    </a>
+                    <a href="/esai" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="edit-3" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Esai</span>
+                    </a>
+                    <a href="/kolom" class="bg-gradient-to-br from-[#0973d6] to-[#2918a9] rounded-xl shadow-lg aspect-square flex flex-col items-center justify-center p-2 text-white text-center transition-transform hover:-translate-y-1 active:scale-95">
+                        <i data-lucide="columns" class="w-8 h-8 mb-1"></i>
+                        <span class="text-xs font-semibold leading-tight">Kolom</span>
+                    </a>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
