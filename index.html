@@ -1,0 +1,96 @@
+{% raw %}
+---
+layout: null
+title: Selamat Datang
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            transition: opacity 0.7s ease-out;
+        }
+        @keyframes flip {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+        .card-preloader {
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            animation: flip 3.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <div id="loader-container" class="flex flex-col items-center justify-around p-4 bg-gradient-to-br from-[#0973d6] to-[#2918a9]" role="status" aria-label="Memuat halaman">
+        
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo Organisasi" class="w-24 h-24" onerror="this.style.display='none'">
+        
+        <div id="flipping-cards-wrapper" class="flex justify-center items-center flex-wrap gap-1">
+        </div>
+        
+        <div class="text-center">
+            <p class="font-bold text-[#ffcb05] text-xs md:text-sm">Create By PKC PMII Bali Nusra</p>
+            <p class="text-white text-[10px] md:text-xs mt-1">Versi 1.0.0</p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const textToFlip = "{{ site.title | default: 'PERMAISINDO' }}";
+            const animationDuration = 3.5;
+            const animationStagger = 0.2;
+            const redirectPage = "{{ '/beranda.html' | relative_url }}";
+            const wrapper = document.getElementById('flipping-cards-wrapper');
+
+            if (wrapper) {
+                textToFlip.split('').forEach((char, index) => {
+                    const card = document.createElement('div');
+                    card.className = "card-preloader flex items-center justify-center p-1 bg-[#ffcb05] text-[#2918a9] text-lg sm:text-xl md:text-2xl font-bold rounded shadow-md";
+                    card.textContent = char;
+                    card.style.animationDelay = `${index * animationStagger}s`;
+                    wrapper.appendChild(card);
+                });
+            }
+
+            const totalAnimationTime = (animationDuration + (textToFlip.length * animationStagger)) * 1000;
+
+            setTimeout(function() {
+                const loaderContainer = document.getElementById('loader-container');
+                if (loaderContainer) {
+                    loaderContainer.style.opacity = '0';
+                }
+                
+                setTimeout(() => {
+                    window.location.href = redirectPage;
+                }, 700);
+
+            }, totalAnimationTime);
+        });
+    </script>
+
+</body>
+</html>
+{% endraw %}
