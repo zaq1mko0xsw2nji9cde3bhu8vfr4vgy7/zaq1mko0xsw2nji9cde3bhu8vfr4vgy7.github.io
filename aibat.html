@@ -1,0 +1,211 @@
+---
+layout: null
+title: "AIbat"
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="AIbat, asisten AI pergerakan untuk menjawab semua pertanyaan kader PMII.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .ai-response h1, .ai-response h2, .ai-response h3 { @apply font-bold my-3 text-gray-800; }
+        .ai-response h1 { @apply text-xl; }
+        .ai-response h2 { @apply text-lg; }
+        .ai-response h3 { @apply text-base; }
+        .ai-response p { @apply my-2 text-gray-700 leading-relaxed; }
+        .ai-response ul, .ai-response ol { @apply pl-5 my-3 space-y-1 text-gray-700; }
+        .ai-response ul { @apply list-disc; }
+        .ai-response ol { @apply list-decimal; }
+        .ai-response a { @apply text-blue-600 underline hover:text-blue-800; }
+        .ai-response code { @apply bg-gray-200 text-sm rounded px-1 py-0.5 font-mono; }
+        .ai-response pre { @apply bg-gray-800 text-white rounded-lg p-3 my-3 overflow-x-auto text-sm; }
+        .ai-response blockquote { @apply border-l-4 border-yellow-400 pl-4 my-3 text-gray-600 italic; }
+        .ai-response strong, .ai-response b { @apply font-bold text-gray-900; }
+        #chat-container::-webkit-scrollbar { display: none; }
+        #chat-container { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex flex-col h-screen overflow-hidden">
+        
+        <header class="bg-gradient-to-r from-[#0973d6] to-[#2918a9] text-white p-4 flex items-center justify-center sticky top-0 z-10 h-16 shadow-lg flex-shrink-0">
+            <button class="absolute left-4 p-2 rounded-full hover:bg-white/20" onclick="history.back()" aria-label="Kembali">
+                <i data-lucide="arrow-left" class="w-6 h-6"></i>
+            </button>
+            <h1 class="text-lg font-bold">AIbat</h1>
+        </header>
+
+        <div id="chat-container" class="flex-grow overflow-y-auto p-4 md:px-6">
+            <!-- Pesan Pembuka dari AI -->
+            <div class="flex items-start gap-3 my-4">
+                <div class="flex-shrink-0 w-10 h-10 bg-yellow-400 text-indigo-900 rounded-full flex items-center justify-center font-bold">
+                    <i data-lucide="bot" class="w-6 h-6"></i>
+                </div>
+                <div class="bg-white p-4 rounded-xl rounded-tl-none shadow">
+                    <p class="text-gray-800">Halo Sahabat/i! Kenalin, aku AIbat, asisten pergerakanmu. Mau tanya materi kaderisasi, cari ide untuk agenda, atau sekadar butuh pantun? Tanyakan saja di bawah!</p>
+                </div>
+            </div>
+             <!-- Tombol Saran Pertanyaan -->
+            <div id="suggestion-chips" class="my-6">
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="suggestion-chip bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full hover:bg-blue-200 transition">Apa itu NDP?</button>
+                    <button class="suggestion-chip bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full hover:bg-blue-200 transition">Jelaskan Aswaja</button>
+                    <button class="suggestion-chip bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full hover:bg-blue-200 transition">Buatkan yel-yel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area p-3 bg-white border-t border-gray-200 flex items-center gap-3 flex-shrink-0">
+            <input type="text" id="chat-input" placeholder="Ketik pesanmu di sini..." class="w-full bg-gray-100 border border-gray-300 rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="send-button" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 transition-transform active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed" aria-label="Kirim Pesan">
+                <i data-lucide="send" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const chatApp = {
+                elements: {
+                    container: document.getElementById('chat-container'),
+                    input: document.getElementById('chat-input'),
+                    sendBtn: document.getElementById('send-button'),
+                    suggestionChipsContainer: document.getElementById('suggestion-chips'),
+                },
+                state: {
+                    history: [],
+                    isLoading: false,
+                },
+                // URL Google Apps Script Anda
+                scriptUrl: "https://script.google.com/macros/s/AKfycbxOveq8ZTy3mlSRvUf64euFvv74Vbq6fsUV-dQKuXwDghl8TwyBfs-X7CyExbS-oPiryg/exec",
+                
+                init() {
+                    this.elements.sendBtn.addEventListener('click', () => this.handleSendMessage());
+                    this.elements.input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            this.handleSendMessage();
+                        }
+                    });
+                    this.elements.suggestionChipsContainer.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('suggestion-chip')) {
+                            this.elements.input.value = e.target.textContent;
+                            this.handleSendMessage();
+                        }
+                    });
+                },
+
+                addMessage(role, content) {
+                    const messageWrapper = document.createElement('div');
+                    messageWrapper.className = 'flex items-start gap-3 my-4';
+
+                    let avatar, messageBubble;
+
+                    if (role === 'user') {
+                        messageWrapper.classList.add('justify-end');
+                        avatar = `<div class="flex-shrink-0 w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold order-2"><i data-lucide="user" class="w-6 h-6"></i></div>`;
+                        messageBubble = `<div class="bg-blue-600 text-white p-4 rounded-xl rounded-br-none shadow order-1">${content}</div>`;
+                    } else { // AI's message
+                        const parsedContent = marked.parse(content);
+                        avatar = `<div class="flex-shrink-0 w-10 h-10 bg-yellow-400 text-indigo-900 rounded-full flex items-center justify-center font-bold"><i data-lucide="bot" class="w-6 h-6"></i></div>`;
+                        messageBubble = `<div class="ai-response bg-white p-4 rounded-xl rounded-tl-none shadow">${parsedContent}</div>`;
+                    }
+                    
+                    messageWrapper.innerHTML = avatar + messageBubble;
+                    this.elements.container.appendChild(messageWrapper);
+                    lucide.createIcons(); // Re-render icons
+                    this.scrollToBottom();
+                },
+
+                toggleLoading(show) {
+                    this.state.isLoading = show;
+                    this.elements.sendBtn.disabled = show;
+                    const existingIndicator = document.getElementById('loading-indicator');
+
+                    if (show && !existingIndicator) {
+                        const loadingEl = document.createElement('div');
+                        loadingEl.id = 'loading-indicator';
+                        loadingEl.className = 'flex items-start gap-3 my-4';
+                        loadingEl.innerHTML = `
+                            <div class="flex-shrink-0 w-10 h-10 bg-yellow-400 text-indigo-900 rounded-full flex items-center justify-center font-bold"><i data-lucide="bot" class="w-6 h-6"></i></div>
+                            <div class="bg-white p-4 rounded-xl rounded-tl-none shadow flex items-center gap-2">
+                                <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: -0.3s;"></div>
+                                <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: -0.15s;"></div>
+                                <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
+                            </div>`;
+                        this.elements.container.appendChild(loadingEl);
+                        lucide.createIcons();
+                        this.scrollToBottom();
+                    } else if (!show && existingIndicator) {
+                        existingIndicator.remove();
+                    }
+                },
+
+                scrollToBottom() {
+                    this.elements.container.scrollTop = this.elements.container.scrollHeight;
+                },
+
+                async handleSendMessage() {
+                    const userInput = this.elements.input.value.trim();
+                    if (userInput === '' || this.state.isLoading) return;
+
+                    this.elements.input.value = '';
+                    // Sembunyikan saran setelah pertanyaan pertama
+                    if (this.elements.suggestionChipsContainer) {
+                        this.elements.suggestionChipsContainer.style.display = 'none';
+                    }
+
+                    this.addMessage('user', userInput);
+                    this.toggleLoading(true);
+
+                    const prompt = `Anda adalah AIbat, asisten AI Pergerakan Mahasiswa Islam Indonesia (PMII) yang super asik dan kekinian. Kamu bukan bot kaku, tapi sahabat digital buat kader-kader PMII, terutama Gen-Z. **Gaya Bahasa & Persona:** Santai & Hangat, Empati & Menghibur, Informatif tapi Nggak Kaku. **Tugas Utama:** Jawab semua pertanyaan seputar PMII, bantu kader, berikan hiburan. **Aturan Penting:** Sertakan Sumber untuk jawaban faktual dan gunakan format Markdown. **Pertanyaan dari Sahabat/i:** "${userInput}"`;
+                    
+                    const payload = { prompt: prompt, history: this.state.history };
+
+                    try {
+                        const response = await fetch(this.scriptUrl, {
+                            method: 'POST',
+                            body: JSON.stringify(payload),
+                            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        });
+
+                        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+                        
+                        const result = await response.json();
+                        this.toggleLoading(false);
+                        
+                        if (result.candidates && result.candidates.length > 0) {
+                            const aiContent = result.candidates[0].content;
+                            const aiResponse = aiContent.parts[0].text;
+                            this.addMessage('ai', aiResponse);
+                            this.state.history.push({ role: "user", parts: [{ text: prompt }] });
+                            this.state.history.push(aiContent);
+                        } else {
+                            this.addMessage('ai', 'Waduh, koneksiku lagi kurang oke nih. Coba tanya lagi beberapa saat ya, Sahabat/i.');
+                        }
+                    } catch (error) {
+                        console.error("Error:", error);
+                        this.toggleLoading(false);
+                        this.addMessage('ai', 'Aduh, maaf banget, Sahabat/i. Kayaknya ada gangguan jaringan. Coba periksa koneksimu atau tanyakan lagi nanti, ya!');
+                    }
+                }
+            };
+            
+            chatApp.init();
+        });
+    </script>
+</body>
+</html>
