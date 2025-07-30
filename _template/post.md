@@ -9,7 +9,7 @@
 
 # --- WAJIB DIISI ---
 title: "Judul untuk Postingan Baru Anda"
-categories: [edukasi], [berita], [kompetisi]
+categories: [edukasi]
 
 # --- OPSIONAL ---
 author: "Nama Penulis"
