@@ -1,27 +1,35 @@
-{% raw %}
 ---
+# Front matter ini memberitahu Jekyll untuk memproses halaman ini
+# tanpa menggunakan layout eksternal, untuk menghindari error.
 layout: null
-title: Selamat Datang
+title: "Selamat Datang"
 ---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & METADATA -->
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
 
+    <!-- DEPENDENSI EKSTERNAL -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Gaya dasar, mencegah scroll saat preloader aktif */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden;
         }
+
+        /* Kontainer preloader, memastikan menutupi seluruh layar */
         #loader-container {
             position: fixed;
             top: 0;
@@ -29,63 +37,87 @@ title: Selamat Datang
             width: 100vw;
             height: 100vh;
             z-index: 9999;
-            transition: opacity 0.7s ease-out;
+            transition: opacity 0.7s ease-out; /* Efek fade-out saat beralih halaman */
         }
+
+        /* Animasi putar kartu 3D */
         @keyframes flip {
             0%, 100% { transform: rotateY(0deg); }
             50% { transform: rotateY(180deg); }
         }
+
+        /* Properti untuk elemen yang akan dianimasikan */
         .card-preloader {
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            animation: flip 3.5s infinite;
+            transform-style: preserve-d;
+            backface-visibility: hidden; /* Sembunyikan sisi belakang saat berputar */
+            animation: flip 3.5s infinite; /* Terapkan animasi secara default */
         }
     </style>
 </head>
 <body class="bg-white">
 
-    <div id="loader-container" class="flex flex-col items-center justify-around p-4 bg-gradient-to-br from-[#0973d6] to-[#2918a9]" role="status" aria-label="Memuat halaman">
+    <!-- 
+      KONTAINER PRELOADER UTAMA
+      Semua elemen visual preloader berada di dalam div ini.
+    -->
+    <div id="loader-container" class="flex flex-col items-center justify-around p-4 bg-gradient-to-br from-blue-700 to-indigo-900" role="status" aria-label="Memuat halaman">
         
-        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo Organisasi" class="w-24 h-24" onerror="this.style.display='none'">
+        <!-- LOGO ORGANISASI -->
+        <img
+            src="{{ '/assets/images/logo.png' | relative_url }}" <!-- Gunakan path relatif Jekyll -->
         
+        <!-- 
+          WADAH UNTUK KARTU HURUF
+          Div ini akan diisi secara otomatis oleh JavaScript.
+          Ini membuat HTML lebih bersih dan mudah dikelola.
+        -->
         <div id="flipping-cards-wrapper" class="flex justify-center items-center flex-wrap gap-1">
+            <!-- Kartu huruf akan dibuat oleh JavaScript di sini -->
         </div>
         
+        <!-- INFORMASI KREDIT & VERSI -->
         <div class="text-center">
-            <p class="font-bold text-[#ffcb05] text-xs md:text-sm">Create By PKC PMII Bali Nusra</p>
-            <p class="text-white text-[10px] md:text-xs mt-1">Versi 1.0.0</p>
+            <p class="font-bold text-yellow-400 text-xs md:text-sm">Create By PKC PMII Bali Nusra</p>
+            <p class="text-white text-[10px] md:text-xs mt-1">Versi 0.1.1</p>
         </div>
     </div>
 
     <script>
+        // Menunggu seluruh konten halaman (termasuk gambar) dimuat
         window.addEventListener('load', function() {
-            const textToFlip = "{{ site.title | default: 'PERMAISINDO' }}";
-            const animationDuration = 3.5;
-            const animationStagger = 0.2;
-            const redirectPage = "{{ '/beranda.html' | relative_url }}";
+            
+            // --- PENGATURAN DINAMIS ---
+            const textToFlip = "PERMAISINDO"; // Ganti teks di sini jika perlu
+            const animationDuration = 3.5; // Durasi animasi dalam detik (sesuai CSS)
+            const animationStagger = 0.2; // Jeda antar huruf dalam detik
+            const redirectPage = "{{ '/beranda.html' | relative_url }}"; // Halaman tujuan, menggunakan baseurl Jekyll
+
             const wrapper = document.getElementById('flipping-cards-wrapper');
 
-            if (wrapper) {
-                textToFlip.split('').forEach((char, index) => {
-                    const card = document.createElement('div');
-                    card.className = "card-preloader flex items-center justify-center p-1 bg-[#ffcb05] text-[#2918a9] text-lg sm:text-xl md:text-2xl font-bold rounded shadow-md";
-                    card.textContent = char;
-                    card.style.animationDelay = `${index * animationStagger}s`;
-                    wrapper.appendChild(card);
-                });
-            }
-
-            const totalAnimationTime = (animationDuration + (textToFlip.length * animationStagger)) * 1000;
-
-            setTimeout(function() {
-                const loaderContainer = document.getElementById('loader-container');
-                if (loaderContainer) {
-                    loaderContainer.style.opacity = '0';
-                }
+            // 1. Buat kartu huruf secara dinamis
+            textToFlip.split('').forEach((char, index) => {
+                const card = document.createElement('div');
+                card.className = "card-preloader flex items-center justify-center p-1 bg-yellow-400 text-indigo-900 text-lg sm:text-xl md:text-2xl font-bold rounded shadow-md";
+                card.textContent = char;
                 
+                // Atur jeda animasi untuk setiap kartu secara dinamis
+                card.style.animationDelay = `${index * animationStagger}s`;
+                
+                wrapper.appendChild(card);
+            });
+
+            // 2. Hitung total durasi animasi untuk pengalihan yang mulus
+            const totalAnimationTime = (animationDuration + (textToFlip.length * animationStagger)) * 1000; // dalam milidetik
+
+            // 3. Alihkan ke halaman beranda setelah animasi selesai
+            setTimeout(function() {
+                // Tambahkan efek fade-out sebelum beralih
+                document.getElementById('loader-container').style.opacity = '0';
+                
+                // Tunggu efek fade-out selesai, lalu alihkan halaman
                 setTimeout(() => {
                     window.location.href = redirectPage;
-                }, 700);
+                }, 700); // 700ms, sesuai dengan transisi opacity di CSS
 
             }, totalAnimationTime);
         });
@@ -93,4 +125,3 @@ title: Selamat Datang
 
 </body>
 </html>
-{% endraw %}
